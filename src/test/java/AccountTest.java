@@ -39,7 +39,7 @@ class AccountTest {
     void depositAmount(int amount) {
         transactions = new ArrayList<>();
         transactions.add(new Transaction(amount, new Date()));
-        
+
     }
 
     @Test
