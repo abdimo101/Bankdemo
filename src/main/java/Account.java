@@ -7,6 +7,8 @@ public class Account {
     private List<Transaction> transactions;
     private Customer customer;
 
+
+
     public Account(Customer customer) {
         this.transactions = new ArrayList<>();
         this.customer = customer;
@@ -22,18 +24,27 @@ public class Account {
         for (Transaction transaction : transactions) {
             sum += transaction.getAmount();
         }
-        return 0;
+        return sum;
     }
 
     public int withDrawAmount(int amount){
         // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
-        return 0;
+        if (amount < getBalance()){
+            transactions.add(new Transaction(-amount, new Date()));
+        } else {
+            System.out.println("Invalid! The amount is bigger than the balance.");
+        }
+        return getBalance();
     }
 
     public int depositAmount(int amount){
         // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
-        transactions.add(new Transaction(amount, new Date()));
-        return 0;
+        if (amount < 0) {
+            transactions.add(new Transaction(amount, new Date()));
+        } else {
+            System.out.println("Invalid! The amount is smaller than 0");
+        }
+        return getBalance();
     }
 
     public List<Transaction> getTransactions() {
