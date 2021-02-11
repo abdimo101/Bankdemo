@@ -40,7 +40,7 @@ class AccountTest {
         transactions = new ArrayList<>();
         transactions.add(new Transaction(amount, new Date()));
         //Skal vi instantierer en transactions arrayList?
-        //Vi skal vel have fat i List <Transaction> transactions fra Account objektet? 
+        //Vi skal vel have fat i List <Transaction> transactions fra Account objektet?
     }
 
     @Test
