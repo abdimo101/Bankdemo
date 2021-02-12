@@ -29,10 +29,11 @@ public class Account {
 
     public int withDrawAmount(int amount){
         // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
-        if (amount < getBalance()){
+        if (amount > getBalance()){
             transactions.add(new Transaction(-amount, new Date()));
         } else {
             System.out.println("Invalid! The amount is bigger than the balance.");
+            return 0;
         }
         return getBalance();
     }

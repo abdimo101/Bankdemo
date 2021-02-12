@@ -12,38 +12,48 @@ class AccountTest {
 
     Customer c1;
     Account account;
-    Transaction transaction;
-    Date date;
-    List<Transaction> transactions;
+
     @BeforeEach
     void setUp() {
         c1 = new Customer("Jon");
         account = new Account(c1);
-        date = new Date();
-        transaction = new Transaction(0, date);
     }
 
     @Test
     void getCustomer() {
+
+        assertEquals("Jon",account.getCustomer().getName());
     }
 
     @Test
     void getBalance() {
+        //TODO:
+     //   account.depositAmount(0);
+     //   assertEquals(0,account.getBalance());
     }
 
     @Test
     void withDrawAmount() {
+        //TODO:
+        account.depositAmount(200); //Tilføjer da man skal have penge på kontoen, for at tage penge ud af kontoen.
+      //  assertEquals(100,account.withDrawAmount(200));
+      //  assertEquals(0,account.withDrawAmount(300));
     }
 
     @Test
-    void depositAmount(int amount) {
-        transactions = new ArrayList<>();
-        transactions.add(new Transaction(amount, new Date()));
-        //Skal vi instantierer en transactions arrayList?
-        //Vi skal vel have fat i List <Transaction> transactions fra Account objektet?
+    void depositAmount() {
+assertEquals(100,account.depositAmount(100));
+assertEquals(200,account.depositAmount(100));
+
     }
 
     @Test
     void getTransactions() {
+        account.depositAmount(100);
+        account.depositAmount(150);
+        account.depositAmount(100);
+        assertEquals(3,account.getTransactions().size()); //er 3 transactions tilføjet?
+        assertEquals(150,account.getTransactions().get(1).getAmount()); // ...get(1) returnerer hele toString
+        //af transactions. Vi er kun intresseret i amount.
     }
 }
