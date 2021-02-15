@@ -40,7 +40,7 @@ public class Account {
 
     public int depositAmount(int amount){
         // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
-        if (amount < 0) {
+        if (amount > 0) {
             transactions.add(new Transaction(amount, new Date()));
         } else {
             System.out.println("Invalid! The amount is smaller than 0");
