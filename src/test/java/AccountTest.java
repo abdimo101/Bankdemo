@@ -22,50 +22,40 @@ class AccountTest {
     @Test
     void getCustomer() {
 
-        assertEquals("Jon",account.getCustomer().getName());
+        assertEquals("Jon", account.getCustomer().getName());
     }
 
     @Test
     void getBalance() {
         //TODO:
-     //   account.depositAmount(0);
-     //   assertEquals(0,account.getBalance());
+        //   account.depositAmount(0);
+        //   assertEquals(0,account.getBalance());
     }
 
     @Test
     void withDrawAmount() {
         //TODO:
         account.depositAmount(200); //Tilføjer da man skal have penge på kontoen, for at tage penge ud af kontoen.
-      //  assertEquals(100,account.withDrawAmount(200));
-      //  assertEquals(0,account.withDrawAmount(300));
+        //  assertEquals(100,account.withDrawAmount(200));
+        //  assertEquals(0,account.withDrawAmount(300));
     }
 
     @Test
-<<<<<<< HEAD
     void depositAmount(int amount) {
-        transactions = new ArrayList<>();
-        transactions.add(new Transaction(amount, new Date()));
-<<<<<<< HEAD
+        //  transactions = new ArrayList<>();
+        //  transactions.add(new Transaction(amount, new Date()));
 
-=======
         //Skal vi instantierer en transactions arrayList?
-        //Vi skal vel have fat i List <Transaction> transactions fra Account objektet? 
->>>>>>> parent of 16951be (added en åndsvag test)
-=======
-    void depositAmount() {
-assertEquals(100,account.depositAmount(100));
-assertEquals(200,account.depositAmount(100));
-
->>>>>>> d272eed657a4c36fc0b7e6de9a4613d64e8ac2ab
+        //Vi skal vel have fat i List <Transaction> transactions fra Account objektet?
     }
-
     @Test
-    void getTransactions() {
-        account.depositAmount(100);
-        account.depositAmount(150);
-        account.depositAmount(100);
-        assertEquals(3,account.getTransactions().size()); //er 3 transactions tilføjet?
-        assertEquals(150,account.getTransactions().get(1).getAmount()); // ...get(1) returnerer hele toString
-        //af transactions. Vi er kun intresseret i amount.
-    }
+        void getTransactions () {
+            account.depositAmount(100);
+            account.depositAmount(150);
+            account.depositAmount(100);
+            assertEquals(3, account.getTransactions().size()); //er 3 transactions tilføjet?
+            assertEquals(150, account.getTransactions().get(1).getAmount()); // ...get(1) returnerer hele toString
+            //af transactions. Vi er kun intresseret i amount.
+        }
+
 }
