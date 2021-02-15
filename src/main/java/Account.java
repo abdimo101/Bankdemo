@@ -27,7 +27,15 @@ public class Account {
 
     public int withDrawAmount(int amount){
         // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
-        return 0;
+
+
+        if (amount > getBalance()){
+            transactions.add(new Transaction(-amount, new Date()));
+        } else {
+            System.out.println("Invalid! The amount is bigger than the balance.");
+
+        }
+        return getBalance();
     }
 
     public int depositAmount(int amount){
