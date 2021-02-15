@@ -39,7 +39,12 @@ class AccountTest {
     void depositAmount(int amount) {
         transactions = new ArrayList<>();
         transactions.add(new Transaction(amount, new Date()));
+<<<<<<< HEAD
 
+=======
+        //Skal vi instantierer en transactions arrayList?
+        //Vi skal vel have fat i List <Transaction> transactions fra Account objektet? 
+>>>>>>> parent of 16951be (added en åndsvag test)
     }
 
     @Test
