@@ -1,4 +1,5 @@
 
+import ConnectionToDB.ConnectionDB;
 import controller.MainController;
 
 import java.util.Date;
@@ -25,6 +26,8 @@ public class Main {
         System.out.println("Withdrawal amount - " + account.withDrawAmount(20));
 
         */
+
+        ConnectionDB.getConnection();
 
         MainController mainController = new MainController();
         mainController.runProgram();
