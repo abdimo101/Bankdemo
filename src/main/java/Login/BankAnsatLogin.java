@@ -1,7 +1,10 @@
 package Login;
 
+import domæne.Account;
+
 public class BankAnsatLogin implements Login{
     @Override
-    public void login() {
+    public Account login() {
+        return null;
     }
 }

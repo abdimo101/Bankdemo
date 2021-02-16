@@ -8,10 +8,10 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-      /*  Date date = new Date();
+        Date date = new Date();
 
-        Customer c1 = new Customer("Jon");
-        Account account = new Account(c1);
+        domæne.Customer c1 = new domæne.Customer("Jon");
+        domæne.Account account = new domæne.Account(c1);
 
         int newBalance = account.depositAmount(125);
         System.out.println(String.format("Ny balance: %d", newBalance));
@@ -21,7 +21,7 @@ public class Main {
 
         System.out.println(account.getTransactions());
         System.out.println("Balance -" + account.getBalance());
-        System.out.println("Withdrawal amount - " + account.withDrawAmount(20));*/
+        System.out.println("Withdrawal amount - " + account.withDrawAmount(20));
         MainController mainController = new MainController();
         mainController.runProgram();
 

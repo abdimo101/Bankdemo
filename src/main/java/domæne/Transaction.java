@@ -1,3 +1,5 @@
+package domæne;
+
 import java.util.Date;
 
 public class Transaction {
@@ -16,5 +18,13 @@ public class Transaction {
 
     public Date getDate() {
         return date;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "amount=" + amount +
+                ", date=" + date +
+                '}';
     }
 }

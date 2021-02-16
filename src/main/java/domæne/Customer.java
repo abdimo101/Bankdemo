@@ -1,3 +1,5 @@
+package domæne;
+
 import java.util.Objects;
 
 public class Customer {

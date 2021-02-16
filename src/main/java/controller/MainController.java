@@ -13,6 +13,7 @@ public class MainController {
   BankAnsatLogin bankAnsatLogin = new BankAnsatLogin();
   int choice = 0;
   Scanner scanner = new Scanner(System.in);
+  AccountController accountController = new AccountController();
 
   public void runProgram(){
 
@@ -23,8 +24,8 @@ public class MainController {
               bankAnsatLogin.login();
           } else if (choice == 2){
               //TODO: Log ind automatisk ud fra brugernavn
-              mathiasLogin.login(); // eksempel lige nu
-
+               // eksempel lige nu
+accountController.runProgram();
           } else {
               System.out.println("Fejl prøv igen");
               //TODO: Lav fejl exeption

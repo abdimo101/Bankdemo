@@ -1,5 +1,8 @@
 package Login;
 
+import domæne.Account;
+import domæne.Customer;
+
 public interface Login {
-    void login();
+    Account login();
 }

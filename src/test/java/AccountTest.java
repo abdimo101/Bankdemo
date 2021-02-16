@@ -1,10 +1,7 @@
+import domæne.Account;
+import domæne.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,10 +40,10 @@ class AccountTest {
     @Test
     void depositAmount(int amount) {
         //  transactions = new ArrayList<>();
-        //  transactions.add(new Transaction(amount, new Date()));
+        //  transactions.add(new domæne.Transaction(amount, new Date()));
 
         //Skal vi instantierer en transactions arrayList?
-        //Vi skal vel have fat i List <Transaction> transactions fra Account objektet?
+        //Vi skal vel have fat i List <domæne.Transaction> transactions fra domæne.Account objektet?
     }
     @Test
         void getTransactions () {

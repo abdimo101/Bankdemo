@@ -1,8 +1,17 @@
 package Login;
 
-public class AleksanderLogin implements Login{
-    @Override
-    public void login() {
+import controller.AccountController;
+import domæne.Account;
+import domæne.Customer;
 
+public class AleksanderLogin implements Login{
+    AccountController accountController = new AccountController();
+    @Override
+    public Account login() {
+        Customer customer = new Customer("Aleksander");
+        Account account = new Account(customer);
+        accountController.runProgram();
+
+        return account;
     }
 }
