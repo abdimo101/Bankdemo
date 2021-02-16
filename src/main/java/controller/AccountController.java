@@ -1,6 +1,9 @@
 package controller;
 
 import Login.AbdiLogin;
+import Login.AleksanderLogin;
+import Login.AlexLogin;
+import Login.MathiasLogin;
 import domæne.Account;
 import domæne.Customer;
 import menu.AccountMenu;
@@ -9,11 +12,28 @@ import java.util.Scanner;
 
 public class AccountController {
 AbdiLogin abdiLogin = new AbdiLogin();
+MathiasLogin mathiasLogin = new MathiasLogin();
+AlexLogin alexLogin = new AlexLogin();
+AleksanderLogin aleksanderLogin = new AleksanderLogin();
 AccountMenu accountMenu = new AccountMenu();
     Scanner scanner = new Scanner(System.in);
+    Account account;
     public void runProgram(){
-        Account account = abdiLogin.login();
-        int choice = 0;
+
+        System.out.println("Indtast brugernavn.");
+        String username = scanner.nextLine();
+        if (username.equals("Abdi")) {
+            Account account = abdiLogin.login();
+        } else if (username.equals("Mathias")){
+            Account account = mathiasLogin.login();
+        }  else if (username.equals("Alex")){
+        Account account = alexLogin.login();
+    }  else if (username.equals("Aleksander")){
+        Account account = aleksanderLogin.login();
+    } else {
+            System.out.println("Error!");
+        }
+    int choice = 0;
         while (choice != 9){
             accountMenu.menu();
             choice = scanner.nextInt();
@@ -26,12 +46,11 @@ AccountMenu accountMenu = new AccountMenu();
                 case 2:
                     System.out.println("Hvor mange penge vil du hæve?");
                     int valg2 = scanner.nextInt();
-
                     account.withDrawAmount(valg2);
                     break;
                 case 3:
                     System.out.println("Dine kontoudtog:");
-                    account.getTransactions();
+                    System.out.println(account.getTransactions());
                     break;
                 case 4:
                     System.out.println("Saldo:");
