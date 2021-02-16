@@ -37,7 +37,6 @@ public class Account {
             transactions.add(new Transaction(-amount, new Date()));
         } else {
             System.out.println("Invalid! The amount is bigger than the balance.");
-
         }
         return getBalance();
     }
