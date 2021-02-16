@@ -8,6 +8,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+      /*
         Date date = new Date();
 
         domæne.Customer c1 = new domæne.Customer("Jon");
@@ -22,6 +23,9 @@ public class Main {
         System.out.println(account.getTransactions());
         System.out.println("Balance -" + account.getBalance());
         System.out.println("Withdrawal amount - " + account.withDrawAmount(20));
+
+        */
+
         MainController mainController = new MainController();
         mainController.runProgram();
 
