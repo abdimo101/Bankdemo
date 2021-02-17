@@ -7,7 +7,7 @@ import domæne.Customer;
 public class AleksanderLogin implements Login{
     @Override
     public Account login() {
-        Customer customer = new Customer("Aleksander");
+        Customer customer = new Customer(2,"Aleksander");
         Account account = new Account(customer);
 
 

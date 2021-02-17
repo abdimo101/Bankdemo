@@ -6,7 +6,7 @@ public class Customer {
 
     private String name;
 
-    public Customer(String name) {
+    public Customer(int id,String name) {
         this.name = name;
     }
 

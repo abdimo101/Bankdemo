@@ -8,6 +8,6 @@ public class CustomerMapper implements CustomerInterface {
 
     @Override
     public Customer findCustomerByLogin(String name) {
-        return new Customer("Alex");
+        return new Customer(3,"Alex");
     }
 }

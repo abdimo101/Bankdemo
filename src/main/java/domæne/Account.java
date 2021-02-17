@@ -1,7 +1,9 @@
 package domæne;
 
+import ConnectionToDB.ConnectionDB;
 import domæne.Customer;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,6 +45,8 @@ public class Account {
 
     public int depositAmount(int amount){
         // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
+        Connection connection = ConnectionDB.getConnection();
+        String sql = "INSERT INTO ''";
         if(amount > 0) {
             transactions.add(new Transaction(amount, new Date()));
         } else{

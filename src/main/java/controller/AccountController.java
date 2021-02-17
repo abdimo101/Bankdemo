@@ -23,13 +23,13 @@ AccountMenu accountMenu = new AccountMenu();
         System.out.println("Indtast brugernavn.");
         String username = scanner.nextLine();
         if (username.equals("Abdi")) {
-            Account account = abdiLogin.login();
+            account = abdiLogin.login();
         } else if (username.equals("Mathias")){
-            Account account = mathiasLogin.login();
+           account = mathiasLogin.login();
         }  else if (username.equals("Alex")){
-        Account account = alexLogin.login();
+           account = alexLogin.login();
     }  else if (username.equals("Aleksander")){
-        Account account = aleksanderLogin.login();
+           account = aleksanderLogin.login();
     } else {
             System.out.println("Error!");
         }
