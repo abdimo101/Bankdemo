@@ -49,7 +49,7 @@ AccountMenu accountMenu = new AccountMenu();
                 case 2:
                     System.out.println("Hvor mange penge vil du hæve?");
                     int valg2 = scanner.nextInt();
-                    account.withDrawAmount(valg2);
+                    account.withDrawAmount(valg2,dbId);
                     break;
                 case 3:
                     System.out.println("Dine kontoudtog:");
@@ -57,7 +57,7 @@ AccountMenu accountMenu = new AccountMenu();
                     break;
                 case 4:
                     System.out.println("Saldo:");
-                    System.out.println(account.getBalance());
+                    System.out.println(account.getBalance(dbId));
                     break;
             }
         }
