@@ -74,7 +74,19 @@ public class Account {
 
     }
 
-    public List<Transaction> getTransactions() {
+    public List<Transaction> getTransactions(int dbId) throws SQLException {
+        transactions = new ArrayList<>();
+        Connection connection = ConnectionDB.getConnection();
+        String sql = "SELECT * FROM bank.transaktion where kunde_kunde_id = "+dbId+";";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()){
+            int amount = resultSet.getInt("beløb");
+            Date date = resultSet.getDate("dato");
+
+            Transaction transaction = new Transaction(amount, date);
+            transactions.add(transaction);
+        }
         return transactions;
     }
 }

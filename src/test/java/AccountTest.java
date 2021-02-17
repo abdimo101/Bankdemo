@@ -52,8 +52,8 @@ class AccountTest {
             account.depositAmount(100,1);
             account.depositAmount(150,1);
             account.depositAmount(100,1);
-            assertEquals(3, account.getTransactions().size()); //er 3 transactions tilføjet?
-            assertEquals(150, account.getTransactions().get(1).getAmount()); // ...get(1) returnerer hele toString
+            assertEquals(3, account.getTransactions(1).size()); //er 3 transactions tilføjet?
+            assertEquals(150, account.getTransactions(1).get(1).getAmount()); // ...get(1) returnerer hele toString
             //af transactions. Vi er kun intresseret i amount.
         }
 

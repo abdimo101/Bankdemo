@@ -53,7 +53,7 @@ AccountMenu accountMenu = new AccountMenu();
                     break;
                 case 3:
                     System.out.println("Dine kontoudtog:");
-                    System.out.println(account.getTransactions());
+                    System.out.println(account.getTransactions(dbId));
                     break;
                 case 4:
                     System.out.println("Saldo:");
