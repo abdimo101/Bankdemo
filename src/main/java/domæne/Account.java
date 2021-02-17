@@ -4,6 +4,8 @@ import ConnectionToDB.ConnectionDB;
 import domæne.Customer;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,10 +45,15 @@ public class Account {
         return getBalance();
     }
 
-    public int depositAmount(int amount){
+    public int depositAmount(int amount, int dbId) throws SQLException {
         // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
         Connection connection = ConnectionDB.getConnection();
-        String sql = "INSERT INTO ''";
+        //String sql = "INSERT INTO `bank`.`transaktion` (" + amount + "," + dbId + ") VALUES ('?', '?');";
+        String sql = "INSERT INTO `bank`.`transaktion` (`beløb`, `kunde_kunde_id`) VALUES (" + amount + "," + dbId + ");";
+        //INSERT INTO `bank`.`transaktion` (`beløb`, `kunde_kunde_id`) VALUES ('200', '1');
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.executeUpdate();
+
         if(amount > 0) {
             transactions.add(new Transaction(amount, new Date()));
         } else{

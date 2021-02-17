@@ -8,6 +8,7 @@ import domæne.Account;
 import domæne.Customer;
 import menu.AccountMenu;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class AccountController {
@@ -18,7 +19,7 @@ AleksanderLogin aleksanderLogin = new AleksanderLogin();
 AccountMenu accountMenu = new AccountMenu();
     Scanner scanner = new Scanner(System.in);
     Account account;
-    public void runProgram(){
+    public void runProgram() throws SQLException {
 
         System.out.println("Indtast brugernavn.");
         String username = scanner.nextLine();
@@ -33,6 +34,8 @@ AccountMenu accountMenu = new AccountMenu();
     } else {
             System.out.println("Error!");
         }
+
+        int dbId = account.getCustomer().getId();
     int choice = 0;
         while (choice != 9){
             accountMenu.menu();
@@ -41,7 +44,7 @@ AccountMenu accountMenu = new AccountMenu();
                 case 1:
                     System.out.println("Hvor mange penge vil du tilføje?");
                     int valg = scanner.nextInt();
-                    account.depositAmount(valg);
+                    account.depositAmount(valg,dbId);
                     break;
                 case 2:
                     System.out.println("Hvor mange penge vil du hæve?");

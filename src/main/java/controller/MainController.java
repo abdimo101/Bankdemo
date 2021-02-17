@@ -3,6 +3,7 @@ package controller;
 
 import Login.*;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class MainController {
@@ -15,7 +16,7 @@ public class MainController {
   Scanner scanner = new Scanner(System.in);
   AccountController accountController = new AccountController();
 
-  public void runProgram(){
+  public void runProgram() throws SQLException {
 
       while (choice != 9){
           System.out.println("Er du bankansat tast 1. Er du kunde tast 2");
