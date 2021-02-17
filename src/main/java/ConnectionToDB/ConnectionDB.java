@@ -11,7 +11,7 @@ public class ConnectionDB {
         String user = "bank_user";
         String password = "123";
         String urlAddOn = "?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false";
-        String url = "jdbc:mysql://localhost:3306/bank";
+        String url = "jdbc:mysql://localhost:3306/bank"+ urlAddOn;
 
         try {
             connection = DriverManager.getConnection(url,user,password);
