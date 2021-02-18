@@ -78,19 +78,22 @@ public class Account {
 
     }
 
+    // Denne metode tager en customers id, som parameter så metoden indsætter/hæver penge fra den rigtige konto.
+    //Customerens id passer med det id der er indsat i databasen.
     public List<Transaction> getTransactions(int dbId) throws SQLException {
-        transactions = new ArrayList<>();
-        Connection connection = ConnectionDB.getConnection();
-        String sql = "SELECT * FROM bank.transaktion where kunde_kunde_id = "+dbId+";";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()){
-            int amount = resultSet.getInt("beløb");
-            Date date = resultSet.getDate("dato");
+        transactions = new ArrayList<>(); //Instantierer en liste af transaktioner, som vi fylder op med data
+        Connection connection = ConnectionDB.getConnection(); //skaber forbindelse til mySQL server
+        String sql = "SELECT * FROM bank.transaktion where kunde_kunde_id = "+dbId+";"; //vælger alt fra transaktion table hvor kunde id = dbId
+        PreparedStatement preparedStatement = connection.prepareStatement(sql); //gemmer sql String i et prepared statement
+        ResultSet resultSet = preparedStatement.executeQuery(); //executer qurien i sql og gemmer resultatet i et ResultSet
+        // som vi derefter bruger til at trække dataen ind i int amount
+        while (resultSet.next()){ //dette while loop skal forsætte mens der stadig er et resultset at hente i databasen.
+            int amount = resultSet.getInt("beløb"); //fanger dataen fra SQL i en int, som java kan arbejde med
+            Date date = resultSet.getDate("dato"); //TODO: Få mySQL til at selv at instantierer Date objektet.
 
-            Transaction transaction = new Transaction(amount, date);
-            transactions.add(transaction);
+            Transaction transaction = new Transaction(amount, date);//laver et Transaction objekt med dataen fra MySQL
+            transactions.add(transaction); //adder derefter Transaktion objektet til listen af transaktioner som vi så kan returnere.
         }
-        return transactions;
+        return transactions; //returnerer listen fyldt op af transaktion objekter
     }
 }
