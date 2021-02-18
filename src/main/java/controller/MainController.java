@@ -2,6 +2,7 @@ package controller;
 
 
 import Login.*;
+import domæne.Bankansat;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -11,10 +12,11 @@ public class MainController {
   AleksanderLogin aleksanderLogin = new AleksanderLogin();
   AlexLogin alexLogin = new AlexLogin();
   MathiasLogin mathiasLogin = new MathiasLogin();
-  BankAnsatLogin bankAnsatLogin = new BankAnsatLogin();
+  //BankAnsatLogin bankAnsatLogin = new BankAnsatLogin();
   int choice = 0;
   Scanner scanner = new Scanner(System.in);
   AccountController accountController = new AccountController();
+  BankAnsatController bankAnsatController = new BankAnsatController();
 
   public void runProgram() throws SQLException {
 
@@ -22,7 +24,8 @@ public class MainController {
           System.out.println("Er du bankansat tast 1. Er du kunde tast 2");
           choice = scanner.nextInt();
           if (choice == 1){
-              bankAnsatLogin.login();
+              //bankAnsatLogin.login();
+              bankAnsatController.runProgram();
           } else if (choice == 2){
               //TODO: Log ind automatisk ud fra brugernavn
                // eksempel lige nu
