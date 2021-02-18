@@ -29,11 +29,15 @@ public class Bankansat {
     }
 
     public void overførMellemKonti() throws SQLException {
-        System.out.println("Hvilket kunde_id skal der trækkes penge fra");
+        System.out.println("Hvilket kunde_id skal der overføres penge fra");
         int db = scanner.nextInt();
         System.out.println("Hvor mange penge vil du overføre");
         int amount = scanner.nextInt();
-account.withDrawAmount(amount, db);
+        account.withDrawAmount(amount, db);
+        System.out.println("Hvilken kunde_id skal der tilføjes penge til?");
+        db = scanner.nextInt();
+        account.depositAmount(amount,db);
+
 
 
     }

@@ -49,12 +49,11 @@ public class Account {
         // TODO: skal kodes og returnere ny saldo. Smid fejl hvis amount > saldo
 
         Connection connection = ConnectionDB.getConnection();
-        String sql = "INSERT INTO `bank`.`transaktion` (`beløb`, `kunde_kunde_id`) VALUES (" + -amount + "," + dbId + ");";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.executeUpdate();
 
         if (amount < getBalance(dbId)){
-            transactions.add(new Transaction(-amount, new Date()));
+            String sql = "INSERT INTO `bank`.`transaktion` (`beløb`, `kunde_kunde_id`) VALUES (" + -amount + "," + dbId + ");";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
         } else {
             System.out.println("Invalid! The amount is bigger than the balance.");
         }
@@ -64,13 +63,12 @@ public class Account {
     public int depositAmount(int amount, int dbId) throws SQLException {
         // TODO: skal debugges og returnere ny saldo. Smid fejl hvis amount < 0.
         Connection connection = ConnectionDB.getConnection();
-        String sql = "INSERT INTO `bank`.`transaktion` (`beløb`, `kunde_kunde_id`) VALUES (" + amount + "," + dbId + ");";
-        //INSERT INTO `bank`.`transaktion` (`beløb`, `kunde_kunde_id`) VALUES ('200', '1');
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.executeUpdate();
 
         if(amount > 0) {
-            transactions.add(new Transaction(amount, new Date()));
+            String sql = "INSERT INTO `bank`.`transaktion` (`beløb`, `kunde_kunde_id`) VALUES (" + amount + "," + dbId + ");";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+            System.out.println(amount + "" + " er overført");
         } else{
             System.out.println("Invalid! The amount is smaller than 0");
         }
