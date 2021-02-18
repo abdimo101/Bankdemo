@@ -6,8 +6,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class Bankansat {
+    Scanner scanner = new Scanner(System.in);
+    Account account = new Account();
 
     public void seAlleKonti() throws SQLException {
         //select * from bank.kunde;
@@ -25,7 +28,13 @@ public class Bankansat {
 
     }
 
-    public void overførMellemKonti() {
+    public void overførMellemKonti() throws SQLException {
+        System.out.println("Hvilket kunde_id skal der trækkes penge fra");
+        int db = scanner.nextInt();
+        System.out.println("Hvor mange penge vil du overføre");
+        int amount = scanner.nextInt();
+account.withDrawAmount(amount, db);
+
 
     }
 }

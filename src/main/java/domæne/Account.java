@@ -21,6 +21,10 @@ public class Account {
         this.customer = customer;
     }
 
+    public Account(){
+
+    }
+
     public Customer getCustomer() {
         return customer;
     }
