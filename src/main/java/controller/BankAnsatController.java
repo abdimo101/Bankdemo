@@ -10,17 +10,22 @@ public class BankAnsatController {
 BankAnsatMenu bankAnsatMenu = new BankAnsatMenu();
 Bankansat bankansat = new Bankansat();
     public void runProgram() throws SQLException {
-        bankAnsatMenu.menu();
         int choice = 0;
         Scanner scanner = new Scanner(System.in);
 
         while (choice != 9){
+            bankAnsatMenu.menu();
             choice = scanner.nextInt();
             if (choice == 1){
                 bankansat.overførMellemKonti();
             } else if (choice == 2){
                 bankansat.seAlleKonti();
-            } else {
+            } else if (choice == 3){
+                bankansat.seAlleKontiMedBeløb();
+            } else if (choice == 4){
+                bankansat.findTransaktionMedStørsteBevægelse();
+            }
+            else {
                 System.out.println("fejl");
             }
 

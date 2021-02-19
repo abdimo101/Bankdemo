@@ -2,6 +2,7 @@ package domæne;
 
 import ConnectionToDB.ConnectionDB;
 import data.CustomerMapper;
+import data.TransaktionMySql;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,9 +18,49 @@ public class Bankansat {
     Account account = new Account();
     List<CustomerMapper> customerMapperList;
 
-    public List<CustomerMapper> seAlleKontiMedBeløb(){
+    public List<CustomerMapper> seAlleKontiMedBeløb() throws SQLException {
+        Connection connection = ConnectionDB.getConnection();
+        for (int i = 1; i < 5; i++) {
+            String sql = "select sum(beløb) from bank.transaktion where kunde_kunde_id = " + i +  ";";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            int sum = resultSet.getInt(1);
+            System.out.println("Kundeid: " + i + " saldo: " + sum);
+        }
 
         return null;
+    }
+
+    public void findTransaktionMedStørsteBevægelse() throws SQLException {
+        Connection connection = ConnectionDB.getConnection();
+        String sql = "SELECT COUNT(*) FROM bank.transaktion;";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        int transaktionsid = resultSet.getInt(1);
+                sql = "select * from bank.transaktion;";
+        preparedStatement = connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery();
+        TransaktionMySql transaktionMySql;
+        List<TransaktionMySql> transaktionMySqlList = new ArrayList<>();
+
+        while (resultSet.next()){
+         /*   for (int i = 0; i < transaktionsid; i++) {
+
+            }*/
+            int transaktionsId = resultSet.getInt("transaktion_id");
+            int kundeId = resultSet.getInt("kunde_kunde_id");
+            int beløb = resultSet.getInt("beløb");
+            transaktionMySql = new TransaktionMySql(transaktionsId,beløb,kundeId);
+            transaktionMySqlList.add(transaktionMySql);
+            Collections.sort(transaktionMySqlList);
+
+
+
+            //if (tr)
+        }
+        System.out.println(transaktionMySqlList.get(0)); //Finds the biggest transaktion
     }
 
     public List<CustomerMapper> seAlleKonti() throws SQLException {
